@@ -1,0 +1,21 @@
+PACKAGES
+    ICONS
+        https://docs.expo.io/guides/icons/
+        expo install @expo/vector-icons
+        
+    FONTS
+        expo install expo-font @expo-google-fonts/jost
+
+    APP LOADING
+        expo install expo-app-loading
+    IPHONE X HELPER
+        yarn add react-native-iphone-x-helper
+        https://github.com/ptelad/react-native-iphone-x-helper
+    
+    AXIOS
+        yarn add axios
+    EXPO SVG
+        expo install react-native-svg
+    EXPO LOTTIE ANIMATIONS
+        expo install lottie-react-native
+        https://lottiefiles.com/featured
