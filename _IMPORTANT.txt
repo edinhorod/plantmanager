@@ -19,3 +19,13 @@ PACKAGES
     EXPO LOTTIE ANIMATIONS
         expo install lottie-react-native
         https://lottiefiles.com/featured
+    EXPO ASYNC STORAGE
+        expo install @react-native-async-storage/async-storage
+    EXPO REACT DATE TIME PICKER
+        expo install @react-native-community/datetimepicker
+    DATE FNS
+         yarn add date-fns
+    REACT NAVIGATION TAB
+        yarn add @react-navigation/bottom-tabs
+    EXPO NOTIFICATIONS
+        expo install expo-notifications

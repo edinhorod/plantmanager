@@ -1,39 +1,53 @@
-import { useNavigation } from "@react-navigation/core";
 import React from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  View,
-  Text,
-} from "react-native";
+import { useNavigation, useRoute } from "@react-navigation/core";
+import { SafeAreaView, StyleSheet, View, Text } from "react-native";
 import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 import { Button } from "../_components/Button";
 
+interface Params {
+  title: string;
+  subtitle: string;
+  buttonTitle: string;
+  icon: "smile" | "hug";
+  nextScreen: string;
+}
+
+const emojis = {
+  hug: "🤗",
+  smile: "😄",
+};
+
 export function Confirmation() {
   const navigation = useNavigation();
+  const routes = useRoute();
+  const {
+    title,
+    subtitle,
+    buttonTitle,
+    icon,
+    nextScreen,
+  } = routes.params as Params;
 
-  function handleMoveOn(){
-    navigation.navigate("PlantSelect");
+  function handleMoveOn() {
+    navigation.navigate(nextScreen);
   }
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-          <Text style={styles.emoji}>😄</Text>
+        <Text style={styles.emoji}>{emojis[icon]}</Text>
 
-          <Text style={styles.title}>
-            Prontinho!
-          </Text>
+        <Text style={styles.title}>{title}</Text>
 
-          <Text style={styles.subtitle}>
-            Vamos começar a cuidar das suas plantinhas com muito cuidado.
-          </Text>
+        <Text style={styles.subtitle}>
+          {subtitle}
+        </Text>
 
-          <View style={styles.footer}>
-            <Button title="Começar" onPress={handleMoveOn}/>
-          </View>
+        <View style={styles.footer}>
+          <Button title={buttonTitle} onPress={handleMoveOn} />
         </View>
+      </View>
     </SafeAreaView>
   );
 }
@@ -48,8 +62,8 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     width: "100%",
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     padding: 30,
   },
 
@@ -62,11 +76,11 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
 
-  subtitle:{
-      textAlign: 'center',
-      fontFamily: fonts.text,
-      fontSize: 17,
-      color: colors.heading
+  subtitle: {
+    textAlign: "center",
+    fontFamily: fonts.text,
+    fontSize: 17,
+    color: colors.heading,
   },
 
   form: {
